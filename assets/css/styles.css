@@ -1,0 +1,98 @@
+header {
+  box-shadow: 0px 0px 30px white;
+}
+
+#creaLista {
+  color: #ac0000;
+  border-color: red;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 1.5em;
+  box-shadow: 0px 0px 10px white;
+  transition: 500ms;
+}
+#creaLista:hover {
+  background-color: #cecece;
+  transform: translateY(2px);
+}
+
+.carte {
+  margin: 0 10%;
+}
+.carte li {
+  list-style: none;
+  transition: 0.7s;
+}
+.carte li:hover {
+  cursor: pointer;
+  background-color: #cecece;
+}
+.carte li input {
+  border: 2px solid #cecece;
+}
+.carte li button {
+  color: orange;
+  border-color: orange;
+  background-color: white;
+  font-size: 1.5em;
+  transition: 0.7s;
+}
+.carte li button:hover {
+  background-color: #f0f0f0;
+}
+
+.glow {
+  box-shadow: 0px 0px 50px rgba(255, 255, 255, 0.7882352941);
+}
+
+#popUpCrea {
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(210, 210, 210, 0.9019607843);
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+#popUpCrea.active {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#popUpCrea input {
+  width: 450px;
+}
+
+.gradient {
+  background: linear-gradient(-45deg, #ff8c00, #e73c7e, #ee7752, #ffb219);
+  background-size: 400% 400%;
+  background-repeat: no-repeat;
+  -webkit-animation: gradiente 15s ease infinite;
+          animation: gradiente 15s ease infinite;
+}
+
+@-webkit-keyframes gradiente {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes gradiente {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}/*# sourceMappingURL=styles.css.map */

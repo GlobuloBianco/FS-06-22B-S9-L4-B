@@ -1,0 +1,28 @@
+{
+  "cards": [
+    {
+      "id": 1,
+      "titolo": "Spesa",
+      "lista": [
+        "pasta",
+        "cipolle",
+        "mele"
+      ]
+    },
+    {
+      "id": 2,
+      "titolo": "Viaggio",
+      "lista": [
+        "tshirt",
+        "pantaloni",
+        "calze",
+        "scarpe"
+      ]
+    },
+    {
+      "titolo": "LISTA",
+      "lista": [],
+      "id": 3
+    }
+  ]
+}
