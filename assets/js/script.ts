@@ -3,6 +3,9 @@
 const popUpCrea = document.getElementById('popUpCrea') as HTMLElement;
 const cardList = document.getElementById('cardList') as HTMLElement;
 const nomeLista = document.getElementById('nomeLista') as HTMLInputElement;
+const popUpAdd = document.getElementById('popUpAdd') as HTMLElement;
+const addedValue = document.getElementById('itemAdded') as HTMLInputElement;
+const url: string = 'http://localhost:3000/cards';
 
 //creazione ListaNuova
 const creaNuovo = () => {
@@ -11,6 +14,7 @@ const creaNuovo = () => {
 
 const confermaNo = () => {
     popUpCrea.classList.remove('active');
+    popUpAdd.classList.remove('active');
 }
 
 const confermaSi = () => {
@@ -23,7 +27,7 @@ const confermaSi = () => {
 }
 
 const addToJson = (titolo) => {
-    fetch('http://localhost:3000/cards', {
+    fetch(url, {
         method: 'POST',
         body: JSON.stringify({
             titolo: (titolo).toUpperCase(),
@@ -45,7 +49,7 @@ const clearInput = () => {
 //Print Json
 printData();
 function printData() {
-    fetch("http://localhost:3000/cards")
+    fetch(url)
         .then((response) => {
             return response.json();
         })
@@ -53,7 +57,6 @@ function printData() {
             if (data.length > 0) {
                 console.log(data);
                 data.map(function (e) {
-
                     let list = `<li class='list-group-item' onclick='test(${e.id})'>` + (e.lista).join(`</li><li class='list-group-item' onclick='test(${e.id})'>`) + "</li>";
                     cardList.innerHTML +=
                         `
@@ -61,7 +64,7 @@ function printData() {
                             <div class="card-header py-4 fs-4 gradient text-white">${e.titolo}</div>
                                 <ul class="list-group list-group-flush aggiungiItem">
                                     ${list}
-                                    <li class="list-group-item bg-secondary text-white" onclick='addItem(${e.id})'>Aggiungi Item +</li>
+                                    <li class="list-group-item bg-secondary text-white" onclick='addItem(${e.id}, ${JSON.stringify(data[e.id - 1].lista)})'>Aggiungi Item +</li>
                                 </ul>
                         </div>`;
                 });
@@ -72,23 +75,42 @@ function printData() {
 }
 
 //aggiungi item al titolo corrispondente
-function addItem(element: number) {
-    console.log(element);
-    fetch("http://localhost:3000/cards")
-        .then((response) => {
-            return response.json();
-        })
-        .then((data) => {
-            console.log(data);
-            data.map(function (e) {
+let idHolder: number;
+let item: any;
 
-                var list = `<li class='list-group-item' onclick='test(${e.id})'>` + (e.lista).join(`</li><li class='list-group-item' onclick='test(${e.id})'>`) + "</li>";
-            });
-        }
-        )
+function addItem(e: number, value: object[]) {
+    item = value // array json
+    console.log(item)
+    idHolder = e; // id lista
+    popUpAdd.classList.add('active');
+
+}
+
+function aggiungi() {
+    if (addedValue.value == "") {
+        alert('Si prega di inserire qualcosa')
+    } else {
+        addToJsonlist(addedValue.value)
+        popUpAdd.classList.remove('active');
+        addedValue.value = ""; //clear input
+    }
+}
+
+const addToJsonlist = (value: string) => {
+    let array = item ;
+    array.push(value)
+
+    fetch(url + "/" + idHolder, {
+        method: 'PATCH',
+        headers: {
+            'Accept': 'application/json',
+            'Content-type': 'application/json; charset=UTF-8',
+        },
+        body: JSON.stringify(({lista: array}))
+    })
 }
 
 function test(element) {
-    console.log(element);
+    //console.log(element[1]);
 }
 

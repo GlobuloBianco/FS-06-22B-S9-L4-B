@@ -14,19 +14,19 @@
         crossorigin='anonymous'></script>
 </head>
 
-<body style="background-color: #424549;">
-    
+<body style="background-color: wheat;">
+
     <header class="py-2 border-bottom border-3 border-white gradient">
         <h1 class="display-6 p-2 text-center text-white">-&nbsp;&nbsp;[ To Do List ]&nbsp;&nbsp;-</h1>
     </header>
-    
+
     <main class="text-center mt-5 d-flex flex-column align-items-center">
         <button type="button" id="creaLista" class="p-0" onclick="creaNuovo()">+</button>
-        <p class="text-white my-2 mb-5 font-weight-bold">Add List</p>
+        <p class="text-black my-2 mb-5 font-weight-bold">Add List</p>
         <!-- carte container -->
         <div id="cardList" class="container d-flex align-items-start justify-content-center flex-wrap carte">
 
-                <!-- <div class="glow m-2 border-3" style="width: 15rem;">
+            <!-- <div class="glow m-2 border-3" style="width: 15rem;">
                 <div class="card-header py-4 fs-4 gradient text-white">Featured</div>
                 <ul   id="aggiungiLista" class="list-group list-group-flush">
                     <li class="list-group-item">An item</li>
@@ -38,15 +38,25 @@
         </div>
     </main>
 
-        <!-- PopUp di creazione -->
-        <div id="popUpCrea" class="">
-            <h2 class="display-4">Nome della lista:</h2>
-                <input type="text" id="nomeLista" class="form-control text-center m-2" placeholder="Inserisci un nome">
-            <div class="mt-2">
-                <button type="button" class="btn btn-success border border-dark px-5 me-5" onclick=confermaSi()>Si</button>
-                <button type="button" class="btn bg-white border border-dark px-5" onclick=confermaNo()>No</button>
-            </div>
+    <!-- PopUp di creazione -->
+    <div id="popUpCrea" class="">
+        <h2 class="display-4">Nome della lista:</h2>
+        <input type="text" id="nomeLista" class="form-control text-center m-2" placeholder="Inserisci un nome">
+        <div class="mt-2">
+            <button type="button" class="btn btn-success border border-dark px-5 me-5" onclick=confermaSi()>Si</button>
+            <button type="button" class="btn bg-white border border-dark px-5" onclick=confermaNo()>No</button>
         </div>
+    </div>
+
+    <!-- PopUp di aggiunta -->
+    <div id="popUpAdd" class="">
+        <h2 class="display-4">Aggiungi elemento:</h2>
+        <input type="text" id="itemAdded" class="form-control text-center m-2" placeholder="Inserisci">
+        <div class="mt-2">
+            <button type="button" class="btn bg-white text-danger border border-danger me-5" onclick=confermaNo()>X</button>
+            <button type="button" class="btn btn-success border border-dark px-5 me-5" onclick=aggiungi()>Aggiungi</button>
+        </div>
+    </div>
 
     <script src="assets/js/script.js"></script>
 </body>

@@ -4,9 +4,9 @@
       "id": 1,
       "titolo": "Spesa",
       "lista": [
-        "pasta",
-        "cipolle",
-        "mele"
+        "Banane",
+        "Pere",
+        "Ciliegia"
       ]
     },
     {
@@ -21,8 +21,31 @@
     },
     {
       "titolo": "LISTA",
-      "lista": [],
+      "lista": [
+        "test",
+        "test2",
+        "test"
+      ],
       "id": 3
+    },
+    {
+      "titolo": "LISTA",
+      "lista": [
+        "patate"
+      ],
+      "id": 4
+    },
+    {
+      "titolo": "TEST",
+      "lista": [],
+      "id": 5
+    },
+    {
+      "titolo": "2133123",
+      "lista": [
+        "patate"
+      ],
+      "id": 6
     }
   ]
 }
