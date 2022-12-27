@@ -57,11 +57,11 @@ function printData() {
             if (data.length > 0) {
                 console.log(data);
                 data.map(function (e) {
-                    let list = `<li class='list-group-item' onclick='test(${e.id})'>` + (e.lista).join(`</li><li class='list-group-item' onclick='test(${e.id})'>`) + "</li>";
+                    let list = `<li class='list-group-item' onclick='done(this)'>` + (e.lista).join(`</li><li class='list-group-item' onclick='done(this)'>`) + "</li>";
                     cardList.innerHTML +=
                         `
                         <div class="glow m-2 border-3" style="width: 15rem;">
-                            <div class="card-header py-4 fs-4 gradient text-white">${e.titolo}</div>
+                            <div class="card-header py-4 fs-4 gradient text-white">${e.titolo}<a type='button' class='elimina' onclick='rimuovi(${e.id})'>[x]</a></div>
                                 <ul class="list-group list-group-flush aggiungiItem">
                                     ${list}
                                     <li class="list-group-item bg-secondary text-white" onclick='addItem(${e.id}, ${JSON.stringify(data[e.id - 1].lista)})'>Aggiungi Item +</li>
@@ -110,7 +110,19 @@ const addToJsonlist = (value: string) => {
     })
 }
 
-function test(element) {
-    //console.log(element[1]);
+function done(e) {
+    e.classList.toggle('svolto')
 }
 
+function rimuovi(e) {
+    let conferma = confirm("Sei sicuro di voler cancellare? l'operazione sarà irreversibile!");
+    if (conferma) {
+        fetch(url + "/" + e, {
+            method: 'DELETE',
+            headers: {
+                'Accept': 'application/json',
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+    }
+}

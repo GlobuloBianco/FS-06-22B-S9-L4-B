@@ -50,9 +50,9 @@ function printData() {
         if (data.length > 0) {
             console.log(data);
             data.map(function (e) {
-                var list = "<li class='list-group-item' onclick='test(".concat(e.id, ")'>") + (e.lista).join("</li><li class='list-group-item' onclick='test(".concat(e.id, ")'>")) + "</li>";
+                var list = "<li class='list-group-item' onclick='done(this)'>" + (e.lista).join("</li><li class='list-group-item' onclick='done(this)'>") + "</li>";
                 cardList.innerHTML +=
-                    "\n                        <div class=\"glow m-2 border-3\" style=\"width: 15rem;\">\n                            <div class=\"card-header py-4 fs-4 gradient text-white\">".concat(e.titolo, "</div>\n                                <ul class=\"list-group list-group-flush aggiungiItem\">\n                                    ").concat(list, "\n                                    <li class=\"list-group-item bg-secondary text-white\" onclick='addItem(").concat(e.id, ", ").concat(JSON.stringify(data[e.id - 1].lista), ")'>Aggiungi Item +</li>\n                                </ul>\n                        </div>");
+                    "\n                        <div class=\"glow m-2 border-3\" style=\"width: 15rem;\">\n                            <div class=\"card-header py-4 fs-4 gradient text-white\">".concat(e.titolo, "<a type='button' class='elimina' onclick='rimuovi(").concat(e.id, ")'>[x]</a></div>\n                                <ul class=\"list-group list-group-flush aggiungiItem\">\n                                    ").concat(list, "\n                                    <li class=\"list-group-item bg-secondary text-white\" onclick='addItem(").concat(e.id, ", ").concat(JSON.stringify(data[e.id - 1].lista), ")'>Aggiungi Item +</li>\n                                </ul>\n                        </div>");
             });
         }
         else {
@@ -91,6 +91,18 @@ var addToJsonlist = function (value) {
         body: JSON.stringify(({ lista: array }))
     });
 };
-function test(element) {
-    //console.log(element[1]);
+function done(e) {
+    e.classList.toggle('svolto');
+}
+function rimuovi(e) {
+    var conferma = confirm("Sei sicuro di voler cancellare? l'operazione sarà irreversibile!");
+    if (conferma) {
+        fetch(url + "/" + e, {
+            method: 'DELETE',
+            headers: {
+                'Accept': 'application/json',
+                'Content-type': 'application/json; charset=UTF-8'
+            }
+        });
+    }
 }

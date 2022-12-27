@@ -21,20 +21,12 @@
     </header>
 
     <main class="text-center mt-5 d-flex flex-column align-items-center">
-        <button type="button" id="creaLista" class="p-0" onclick="creaNuovo()">+</button>
-        <p class="text-black my-2 mb-5 font-weight-bold">Add List</p>
+        <div>
+            <button type="button" id="creaLista" class="p-0" onclick="creaNuovo()">+</button>
+            <p class="text-black my-2 mb-5 font-weight-bold">Add List</p>
+        </div>
         <!-- carte container -->
         <div id="cardList" class="container d-flex align-items-start justify-content-center flex-wrap carte">
-
-            <!-- <div class="glow m-2 border-3" style="width: 15rem;">
-                <div class="card-header py-4 fs-4 gradient text-white">Featured</div>
-                <ul   id="aggiungiLista" class="list-group list-group-flush">
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">A second item</li>
-                    <li class="list-group-item">A third item</li>
-                </ul>
-            </div> -->
-
         </div>
     </main>
 
@@ -53,8 +45,10 @@
         <h2 class="display-4">Aggiungi elemento:</h2>
         <input type="text" id="itemAdded" class="form-control text-center m-2" placeholder="Inserisci">
         <div class="mt-2">
-            <button type="button" class="btn bg-white text-danger border border-danger me-5" onclick=confermaNo()>X</button>
-            <button type="button" class="btn btn-success border border-dark px-5 me-5" onclick=aggiungi()>Aggiungi</button>
+            <button type="button" class="btn bg-white text-danger border border-danger me-5"
+                onclick=confermaNo()>X</button>
+            <button type="button" class="btn btn-success border border-dark px-5 me-5"
+                onclick=aggiungi()>Aggiungi</button>
         </div>
     </div>
 

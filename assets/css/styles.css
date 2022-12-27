@@ -31,14 +31,15 @@ header {
 .carte li input {
   border: 2px solid #cecece;
 }
-.carte li button {
+
+button {
   color: orange;
   border-color: orange;
   background-color: white;
   font-size: 1.5em;
   transition: 0.7s;
 }
-.carte li button:hover {
+button:hover {
   background-color: #f0f0f0;
 }
 
@@ -71,6 +72,16 @@ header {
   background-repeat: no-repeat;
   -webkit-animation: gradiente 15s ease infinite;
           animation: gradiente 15s ease infinite;
+}
+
+.list-group-item.svolto {
+  text-decoration: line-through;
+}
+
+.elimina {
+  text-decoration: none;
+  color: black;
+  margin-left: 10px;
 }
 
 @-webkit-keyframes gradiente {

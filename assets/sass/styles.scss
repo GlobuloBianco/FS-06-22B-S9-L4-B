@@ -1,9 +1,7 @@
 //colori
 $hovergray: #cecece;
 
-header {
-    box-shadow: 0px 0px 30px #747474;
-}
+header {box-shadow: 0px 0px 30px #747474;}
 
 //btn crea lista
 #creaLista {
@@ -31,23 +29,25 @@ header {
             cursor: pointer;
             background-color: $hovergray;
         }
-        input {border: 2px solid $hovergray;}
-        button {
-            color: orange;
-            border-color: orange;
-            background-color: white;
-            font-size: 1.5em;
-            transition: 0.7s;
-            &:hover {
-                background-color: #f0f0f0;
-            }
+        input {
+            border: 2px solid $hovergray;
         }
     }
 }
 
-.glow {
-    box-shadow: 0px 0px 50px #bfaa83d4;
+button {
+    color: orange;
+    border-color: orange;
+    background-color: white;
+    font-size: 1.5em;
+    transition: 0.7s;
+    &:hover {
+        background-color: #f0f0f0;
+    }
 }
+
+.glow {box-shadow: 0px 0px 50px #bfaa83d4;}
+
 //popup conferma
 #popUpCrea, #popUpAdd {
     display: none;
@@ -63,16 +63,22 @@ header {
         justify-content: center;
         align-items: center;
     }
-    input {
-        width: 450px;
-    }
+    input {width: 450px;}
 }
 
 .gradient {
-    background: linear-gradient(-45deg, #ff8c00 , #e73c7e, #ee7752, #ffb219);
+    background: linear-gradient(-45deg, #ff8c00, #e73c7e, #ee7752, #ffb219);
     background-size: 400% 400%;
     background-repeat: no-repeat;
     animation: gradiente 15s ease infinite;
+}
+
+.list-group-item.svolto {text-decoration: line-through;}
+
+.elimina {
+    text-decoration: none;
+    color: black;
+    margin-left: 10px;
 }
 
 //animation
